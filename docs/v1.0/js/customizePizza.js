@@ -1,4 +1,4 @@
-//var customizePizza = angular.module('pizzaApp', []);
+var customizePizza = angular.module('pizzaApp', []);
 
 customizePizza.controller('cart', function($scope, $http) {
 	var self = this;
