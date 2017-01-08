@@ -1,8 +1,8 @@
-var customizePizza = angular.module('pizzaApp', []);
+//var customizePizza = angular.module('pizzaApp', []);
 
 customizePizza.controller('cart', function($scope, $http) {
 	var self = this;
-	var url = 'gs-sts-cloud-foundry-deployment-nrsorg.cfapps.io/cart/items/count';
+	var url = '//gs-sts-cloud-foundry-deployment-nrsorg.cfapps.io/cart/items/count';
 	//url = 'http://localhost:8081/cart/items/count';
 	
 	$http.get(url).then(function(response) {
