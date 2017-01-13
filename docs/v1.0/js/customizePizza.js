@@ -1,32 +1,34 @@
 var customizePizza = angular.module('pizzaApp', []);
 
-customizePizza.controller('cart', function($scope, $http) {
-	var self = this;
-	var url = '//gs-sts-cloud-foundry-deployment-nrsorg.cfapps.io/cart/items/count';
-	//url = 'http://localhost:8081/cart/items/count';
-	
-	$http.get(url).then(function(response) {
-		alert('?? called cart/items/count'+ JSON.stringify(response.data));
-		self.items = response.data;
-	}, function(response){alert('?? err');});
-	
-	
-});
 
 customizePizza.controller('pizza', function($scope, $http) {
+	var self = this;
     $scope.list = [];
     
     
     $scope.submitForm = function() {
 
       if ($scope.pizza) {
+    	  
+    	  
       	
         $scope.list.push(this.text);
-
+        
+        if($scope.pizza.toppingMushroom)$scope.pizza.toppingMushroom='Y';
+        if($scope.pizza.toppingPepperoni)$scope.pizza.toppingPepperoni='Y';
+        if($scope.pizza.toppingSpinach)$scope.pizza.toppingSpinach='Y';
+        $scope.pizza.nextView=new Date();
+        
+        var urlstr = "http://springboot-rest-jpa-nsorg.cfapps.io";
+        //urlstr = "http://localhost:8081"
+        //cache buster param
+        var dt=(new Date()).getSeconds();
+        
         $http({
 
-            //url: "http://localhost:8081/pizza",
-            url: "//gs-sts-cloud-foundry-deployment-nrsorg.cfapps.io/pizza",
+            url: urlstr + "/pizza?dt="+dt,
+            
+            //url: "http://gs-sts-cloud-foundry-deployment-nrsorg.cfapps.io/pizza",
             data: $scope.pizza,
             method: 'POST',
             headers : {'Content-Type':'application/json; charset=UTF-8'}
@@ -36,14 +38,28 @@ customizePizza.controller('pizza', function($scope, $http) {
             console.log("OK", data);
             
             //TODO: update cart to reflect user's successful submission
-            //TODO: angular.element(document.getElementById('cntrl1')).scope().$apply();
+            //angular.element(document.getElementById('cntrl1')).scope().callrest();
             
-            //display success message
-            $scope.pizza = {"status":"Submit success", "status_color":"label-success"};  
+            //$scope.$parent.callrest();
+            
+            
+            
+            
+            //self.pizza = $scope.pizza;
+            window.location.href='reviewCart.html';
+            
             
 
-        }).error(function(err){"ERR", console.log(err)});
+        }).error(function(err){
+        	"ERR", console.log(err); 
+        			
+            //display success message
+            $scope.pizza.status = "Submit Error";
+            $scope.pizza.status_color = "label-danger"; 
+
+        	});
         
       }};
     });
+
 
