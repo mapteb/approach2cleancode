@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<title>Order Pizza / Customize Pizza</title>
+<link href="//springboot-rest-jpa-nsorg.cfapps.io/css/angular-bootstrap.css" rel="stylesheet">
+<script src="//springboot-rest-jpa-nsorg.cfapps.io/js/angular.min.js"></script>
+
+	<script src="//springboot-rest-jpa-nsorg.cfapps.io/js/customizePizza.js"></script>
+
+
+</head>
+
+<body ng-app="pizzaApp"  >
+	<div class="container">
+		<h3>Order Pizza</h3>
+		<h4> / Customize Pizza</h4>
+		<hr/>
+		<div class="small text-primary">Demo of static files (HTML5 + Angular UI) in GitHub<br/>
+		calling the following REST services deployed in Cloud Foundry.<br/>
+		http://springboot-rest-jpa-nsorg.cfapps.io/pizza (POST)<br/>
+		http://springboot-rest-jpa-nsorg.cfapps.io/cart/items/count (GET)</div><br/>		
+		<div id="cntrl2" ng-controller="pizza as pizza">
+		<form name="customizePizzaForm" bakaction="reviewCart.html" ng-submit="submitForm()">
+		<table>
+		<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><td>Select Pizza Pie Type:</td><td></td></tr>
+		<tr><td><input type="radio" name="pizzaType" ng-model="pizza.type" value="ThinCrust">Thin Crust&nbsp;<input type="radio" name="pizzaType" ng-model="pizza.type" value="DeepDish">Deep Dish</td><td></td></tr>
+		<tr><td>Select Pizza Size:</td><td></td></tr>
+		<tr><td><input type="radio" name="pizzaSize" ng-model="pizza.size" value="Personal">Personal&nbsp;<input type="radio" name="pizzaSize" ng-model="pizza.size" value="Medium">Medium&nbsp;<input type="radio" name="pizzaSize" ng-model="pizza.size" value="Large">Large</td><td></td></tr>
+		<tr><td>Select Additional Pizza Toppings:</td><td></td></tr>
+		<tr><td><input type="checkbox" name="pizzaTopping" ng-model="pizza.toppingMushroom" value="Mushroom">Mushroom&nbsp;<input type="checkbox" name="pizzaTopping" ng-model="pizza.toppingPepperoni" value="Pepperoni">Pepperoni&nbsp;<input type="checkbox" name="pizzaTopping" ng-model="pizza.toppingSpinach" value="Spinach">Spinach</td><td></td></tr>
+		<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><td><input type="submit" name="SubmitButton" value="Submit"/></td><td class="{{pizza.status_color}} text-left">{{pizza.status}}</td></tr>
+		</table>
+		</form>
+		</div>
+
+			
+	</div>
+	
+</body>
+</html>
