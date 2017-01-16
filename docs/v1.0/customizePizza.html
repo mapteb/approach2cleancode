@@ -4,8 +4,7 @@
 <title>Order Pizza / Customize Pizza</title>
 <link href="//springboot-rest-jpa-nsorg.cfapps.io/css/angular-bootstrap.css" rel="stylesheet">
 <script src="//springboot-rest-jpa-nsorg.cfapps.io/js/angular.min.js"></script>
-
-	<script src="//springboot-rest-jpa-nsorg.cfapps.io/js/customizePizza.js"></script>
+<script src="//springboot-rest-jpa-nsorg.cfapps.io/js/customizePizza.js"></script>
 
 
 </head>
@@ -15,7 +14,7 @@
 		<h3>Order Pizza</h3>
 		<h4> / Customize Pizza</h4>
 		<hr/>
-		<div class="small text-primary">Demo of static files (HTML5 + Angular UI) in GitHub<br/>
+		<div class="small text-primary">Demo of static files (HTML5 + Angular UI) in <a href="https://github.com/mapteb/approach2cleancode">GitHub</a><br/>
 		calling the following REST services deployed in Cloud Foundry.<br/>
 		http://springboot-rest-jpa-nsorg.cfapps.io/pizza (POST)<br/>
 		http://springboot-rest-jpa-nsorg.cfapps.io/cart/items/count (GET)</div><br/>		
@@ -28,7 +27,10 @@
 		<tr><td>Select Pizza Size:</td><td></td></tr>
 		<tr><td><input type="radio" name="pizzaSize" ng-model="pizza.size" value="Personal">Personal&nbsp;<input type="radio" name="pizzaSize" ng-model="pizza.size" value="Medium">Medium&nbsp;<input type="radio" name="pizzaSize" ng-model="pizza.size" value="Large">Large</td><td></td></tr>
 		<tr><td>Select Additional Pizza Toppings:</td><td></td></tr>
-		<tr><td><input type="checkbox" name="pizzaTopping" ng-model="pizza.toppingMushroom" value="Mushroom">Mushroom&nbsp;<input type="checkbox" name="pizzaTopping" ng-model="pizza.toppingPepperoni" value="Pepperoni">Pepperoni&nbsp;<input type="checkbox" name="pizzaTopping" ng-model="pizza.toppingSpinach" value="Spinach">Spinach</td><td></td></tr>
+		<!-- tr><td><input type="checkbox" name="pizzaTopping" ng-model="pizza.toppingMushroom" value="Mushroom">Mushroom&nbsp;<input type="checkbox" name="pizzaTopping" ng-model="pizza.toppingPepperoni" value="Pepperoni">Pepperoni&nbsp;<input type="checkbox" name="pizzaTopping" ng-model="pizza.toppingSpinach" value="Spinach">Spinach</td><td></td></tr -->
+		<tr><td><input type="checkbox" ng-model="pizza.toppingMushroom" ng-true-value="'Y'" ng-false-value="'N'">Mushroom&nbsp;
+		        <input type="checkbox" ng-model="pizza.toppingPepperoni"  ng-true-value="'Y'" ng-false-value="'N'">Pepperoni&nbsp;
+		        <input type="checkbox" ng-model="pizza.toppingSpinach"  ng-true-value="'Y'" ng-false-value="'N'">Spinach</td><td></td></tr>
 		<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 		<tr><td><input type="submit" name="SubmitButton" value="Submit"/></td><td class="{{pizza.status_color}} text-left">{{pizza.status}}</td></tr>
 		</table>
