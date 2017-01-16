@@ -8,7 +8,7 @@ customizePizza.controller('cart', function($scope, $http) {
 	var dt = (new Date()).getSeconds();
 	
 
-    var urlstr = "http://springboot-rest-jpa-nsorg.cfapps.io";
+    var urlstr = "//springboot-rest-jpa-nsorg.cfapps.io";
     //urlstr = "http://localhost:8081"
 	
 	url = urlstr + '/cart/items/count?dt='+dt;
