@@ -1,4 +1,4 @@
-package orderpizza.pizza;
+/package orderpizza.pizza;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -14,7 +14,7 @@ import org.springframework.web.context.request.WebRequest;
 
 import orderpizza.pizza.PizzaEntity;
 import orderpizza.pizza.PizzaRepository;
-
+/
 /**
  * @author Nalla Senthilnathan (https://github.com/mapteb/approach2cleancode)
  *
@@ -34,7 +34,7 @@ public class PizzaController {
 		
         //TODO: identify the user and add pizza to user's cart using PizzaRepository
 		//      For this demo use customerid=1
-		if(pizzaRepository.findByCustomerid(1)!=null && pizzaRepository.findByCustomerid(1).size()>10)pizzaRepository.deleteAll();
+		//if(pizzaRepository.findByCustomerid(1)!=null && pizzaRepository.findByCustomerid(1).size()>10)pizzaRepository.deleteAll();
 		input.setCustomerid(1);
 		PizzaEntity pe =pizzaRepository.save(input);
 		
