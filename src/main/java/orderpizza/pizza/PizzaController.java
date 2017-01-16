@@ -34,6 +34,7 @@ public class PizzaController {
 		
         //TODO: identify the user and add pizza to user's cart using PizzaRepository
 		//      For this demo use customerid=1
+		if(pizzaRepository.findByCustomerid(1)!=null && pizzaRepository.findByCustomerid(1).size()>10)pizzaRepository.deleteAll();
 		input.setCustomerid(1);
 		PizzaEntity pe =pizzaRepository.save(input);
 		
@@ -46,6 +47,8 @@ public class PizzaController {
 		
         //TODO: identify the user and get pizza items count in the user's cart using PizzaRepository
 		//      For this demo use customerid=1
+		
+		
 		int count = pizzaRepository.findByCustomerid(1).size();
 		
 		String res = "{\"count\":"+count+"}";
