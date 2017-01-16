@@ -43,7 +43,7 @@ public class PizzaController {
 	
 	@CrossOrigin
     @RequestMapping(value="/cart/items/count", method = RequestMethod.GET)
-	ResponseEntity<String> getPizzaItemsCountInUserCart() {
+	ResponseEntity<String> getUserCartPizzaItemsCount() {
 		
         //TODO: identify the user and get pizza items count in the user's cart using PizzaRepository
 		//      For this demo use customerid=1
