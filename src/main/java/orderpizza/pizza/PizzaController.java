@@ -30,7 +30,7 @@ public class PizzaController {
 
 	@CrossOrigin
     @RequestMapping(value="/pizza", method = RequestMethod.POST)
-	ResponseEntity<String> addPizzzaItemToUserCart(@RequestBody PizzaEntity input) {
+	public ResponseEntity<String> addPizzzaItemToUserCart(@RequestBody PizzaEntity input) {
 		
         //TODO: identify the user and add pizza to user's cart using PizzaRepository
 		//      For this demo use customerid=1
@@ -43,7 +43,7 @@ public class PizzaController {
 	
 	@CrossOrigin
     @RequestMapping(value="/cart/items/count", method = RequestMethod.GET)
-	ResponseEntity<String> getUserCartPizzaItemsCount() {
+	public ResponseEntity<String> getUserCartPizzaItemsCount() {
 		
         //TODO: identify the user and get pizza items count in the user's cart using PizzaRepository
 		//      For this demo use customerid=1
